@@ -1,0 +1,57 @@
+import type { RiskTier } from '../engine/types'
+
+export const POLICY = {
+  riskMin: 0,
+  riskMax: 100,
+  cleanDayLambda: 0.9,
+  maxPenaltyPerComment: 25,
+  additionalDistinctViolationPoints: 2,
+  maxAdditionalViolationPoints: 4,
+  tiers: [
+    {
+      id: 'normal',
+      label: 'Normal',
+      min: 0,
+      max: 39,
+      explanation: 'Etkileşimler normal şekilde devam eder.',
+      recovery: 'İhlalsiz kullanım risk puanını düşük tutar.',
+      restrictionSeconds: 0,
+    },
+    {
+      id: 'warning',
+      label: 'Uyarı',
+      min: 40,
+      max: 59,
+      explanation: 'Risk durumu görünürdür; etkileşimler devam eder.',
+      recovery: 'İhlalsiz günlerde puan kademeli olarak düşer.',
+      restrictionSeconds: 0,
+    },
+    {
+      id: 'cooldown',
+      label: 'Bekleme Süresi',
+      min: 60,
+      max: 79,
+      explanation: 'Onaylanan ihlalden sonra kısa bir yorum bekleme süresi uygulanır.',
+      recovery: 'Bekleme tamamlandığında ve ihlalsiz günlerde erişim normale yaklaşır.',
+      restrictionSeconds: 15,
+    },
+    {
+      id: 'comment_restriction',
+      label: 'Geçici Yorum Kısıtlaması',
+      min: 80,
+      max: 99,
+      explanation: 'Yorum gönderimi geçici olarak durdurulur; içerikler okunabilir.',
+      recovery: 'Kısa kısıtlama ve ihlalsiz kullanım sonrasında yorum erişimi geri gelir.',
+      restrictionSeconds: 45,
+    },
+    {
+      id: 'interaction_restriction',
+      label: 'Geçici Etkileşim Kısıtlaması',
+      min: 100,
+      max: 100,
+      explanation: 'Yorum etkileşimi daha uzun fakat geçici bir süre için kısıtlanır.',
+      recovery: 'Kalıcı silme uygulanmaz; süre ve decay ile durum geri kazanılabilir.',
+      restrictionSeconds: 90,
+    },
+  ] satisfies readonly RiskTier[],
+} as const

@@ -1,0 +1,86 @@
+import type { LexiconEntry } from '../engine/types'
+
+// Prototype policy parameters. These values are configurable and are not
+// presented as scientifically validated severity measurements.
+export const LEXICON: readonly LexiconEntry[] = [
+  {
+    id: 'defol',
+    canonical: 'defol',
+    severity: 1,
+    points: 3,
+    category: 'Kaba ifade',
+    explanation: 'Muhatabı dışlayan kaba bir ifade tespit edildi.',
+  },
+  {
+    id: 'salak',
+    canonical: 'salak',
+    severity: 1,
+    points: 3,
+    category: 'Kaba ifade',
+    explanation: 'Küçümseyici bir ifade tespit edildi.',
+  },
+  {
+    id: 'aptal',
+    canonical: 'aptal',
+    severity: 2,
+    points: 7,
+    category: 'Doğrudan hakaret',
+    explanation: 'Bir kişiyi doğrudan aşağılayan bir ifade tespit edildi.',
+  },
+  {
+    id: 'pislik',
+    canonical: 'pislik',
+    severity: 2,
+    points: 6,
+    category: 'Doğrudan hakaret',
+    explanation: 'Muhataba yöneltilen aşağılayıcı bir ifade tespit edildi.',
+  },
+  {
+    id: 'adi-herif',
+    canonical: 'adi herif',
+    severity: 2,
+    points: 8,
+    category: 'Doğrudan hakaret',
+    explanation: 'Kişiyi hedef alan aşağılayıcı bir ifade tespit edildi.',
+  },
+  {
+    id: 'gerizekali',
+    canonical: 'gerizekalı',
+    severity: 3,
+    points: 12,
+    category: 'Ağır hakaret',
+    explanation: 'Yoğun aşağılayıcı nitelikte hedefli bir ifade tespit edildi.',
+  },
+  {
+    id: 'serefsiz',
+    canonical: 'şerefsiz',
+    severity: 3,
+    points: 12,
+    category: 'Ağır hakaret',
+    explanation: 'Kişinin karakterini ağır biçimde hedef alan bir ifade tespit edildi.',
+  },
+  {
+    id: 'sen-bir-hicsin',
+    canonical: 'sen bir hiçsin',
+    severity: 3,
+    points: 13,
+    category: 'Hedefli aşağılama',
+    explanation: 'Muhatabın değerini bütünüyle reddeden hedefli bir ifade tespit edildi.',
+  },
+  {
+    id: 'pic',
+    canonical: 'piç',
+    severity: 4,
+    points: 18,
+    category: 'Çok ağır hakaret',
+    explanation: 'Son derece aşağılayıcı ve saldırgan bir ifade tespit edildi.',
+  },
+  {
+    id: 'orospu',
+    canonical: 'orospu',
+    severity: 4,
+    points: 20,
+    category: 'Çok ağır hakaret',
+    explanation: 'Cinsiyetçi ve son derece saldırgan bir hakaret tespit edildi.',
+  },
+] as const
