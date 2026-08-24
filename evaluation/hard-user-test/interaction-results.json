@@ -1,0 +1,1187 @@
+{
+  "generatedAt": "2026-08-24T10:00:48.714Z",
+  "methodology": "Logic-level simulation using the production proposeModeration/applyModerationDecision/state transition functions. Detection correctness is scored separately from interaction/risk correctness.",
+  "summary": {
+    "totalJourneys": 17,
+    "detectionPasses": 9,
+    "detectionFailures": 8,
+    "interactionRiskPasses": 17,
+    "interactionRiskFailures": 0,
+    "warningJourneys": 10,
+    "editPathsExercised": 10,
+    "sendAnywayPathsExercised": 8,
+    "cleanPublishPathsExercised": 7,
+    "decayPathsExercised": 1
+  },
+  "journeys": [
+    {
+      "journeyId": "J-001",
+      "datasetCaseId": "H-009",
+      "purpose": "Temiz yorum: uyarısız yayın ve değişmeyen risk",
+      "text": "Bugün hava süperrrr, 7/24 dışarıda olasım var :)",
+      "groundTruth": "clean",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 0,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 0,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 0,
+        "riskAfter": 0,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 0,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-002",
+      "datasetCaseId": "A-003",
+      "purpose": "Tespit edilen doğrudan kaba ifade: Düzenle ve sonra Yine de Gönder yolları",
+      "text": "Buradan defol.",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 0,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "defol"
+        ],
+        "displayedPenalty": 3,
+        "projectedRisk": 3,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 0,
+        "riskAfter": 0,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 3,
+        "tierAfter": "Normal",
+        "historyEvent": {
+          "id": "violation-1787566201000-1",
+          "timestamp": "2026-08-24T10:10:01.000Z",
+          "type": "violation",
+          "reason": "Kaba ifade — Seviye 1",
+          "previousRisk": 0,
+          "delta": 3,
+          "newRisk": 3,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Kaba ifade",
+            "severity": 1,
+            "policyPoints": 3
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-003",
+      "datasetCaseId": "A-009",
+      "purpose": "Tespit edilen ağır doğrudan hakaret: yüksek ceza ve geçmiş kaydı",
+      "text": "Ulan piç, yine mi sen?",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 10,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "piç"
+        ],
+        "displayedPenalty": 18,
+        "projectedRisk": 28,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 10,
+        "riskAfter": 10,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 28,
+        "tierAfter": "Normal",
+        "historyEvent": {
+          "id": "violation-1787566801000-3",
+          "timestamp": "2026-08-24T10:20:01.000Z",
+          "type": "violation",
+          "reason": "Çok ağır hakaret — Seviye 4",
+          "previousRisk": 10,
+          "delta": 18,
+          "newRisk": 28,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Çok ağır hakaret",
+            "severity": 4,
+            "policyPoints": 18
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-004",
+      "datasetCaseId": "B-001",
+      "purpose": "Noktalı kaçınmanın tespit edilmesi ve onaylı yayın",
+      "text": "s.a.l.a.k gibi konuşma",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 0,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "salak"
+        ],
+        "displayedPenalty": 3,
+        "projectedRisk": 3,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 0,
+        "riskAfter": 0,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 3,
+        "tierAfter": "Normal",
+        "historyEvent": {
+          "id": "violation-1787567401000-4",
+          "timestamp": "2026-08-24T10:30:01.000Z",
+          "type": "violation",
+          "reason": "Kaba ifade — Seviye 1",
+          "previousRisk": 0,
+          "delta": 3,
+          "newRisk": 3,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Kaba ifade",
+            "severity": 1,
+            "policyPoints": 3
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-005",
+      "datasetCaseId": "B-005",
+      "purpose": "Sembol aralıklı ağır hakaretin tespit edilmesi",
+      "text": "p!i!ç herif",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 12,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "piç"
+        ],
+        "displayedPenalty": 18,
+        "projectedRisk": 30,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 12,
+        "riskAfter": 12,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 30,
+        "tierAfter": "Normal",
+        "historyEvent": {
+          "id": "violation-1787568001000-6",
+          "timestamp": "2026-08-24T10:40:01.000Z",
+          "type": "violation",
+          "reason": "Çok ağır hakaret — Seviye 4",
+          "previousRisk": 12,
+          "delta": 18,
+          "newRisk": 30,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Çok ağır hakaret",
+            "severity": 4,
+            "policyPoints": 18
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-006",
+      "datasetCaseId": "A-002",
+      "purpose": "Türkçe çekim eki nedeniyle kaçan doğrudan hakaret",
+      "text": "Sen gerçekten aptalsın ya.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 0,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 0,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 0,
+        "riskAfter": 0,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 0,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-007",
+      "datasetCaseId": "C-004",
+      "purpose": "Kaçan yaratıcı/bileşimsel zekâ hakareti",
+      "text": "İki nöronun varsa ikisi de birbirine küsmüş.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 20,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 20,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 20,
+        "riskAfter": 20,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 20,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-008",
+      "datasetCaseId": "C-016",
+      "purpose": "Kaçan yaratıcı varlık aşağılama metaforu",
+      "text": "Sen bir hata mesajının insan hâlisin.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 20,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 20,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 20,
+        "riskAfter": 20,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 20,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-009",
+      "datasetCaseId": "D-009",
+      "purpose": "Kaçan dolaylı ve bağlama bağlı hakaret",
+      "text": "Bu yorum, neden herkesin söz hakkını kullanmaması gerektiğini anlatıyor.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 35,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 35,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 35,
+        "riskAfter": 35,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 35,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-010",
+      "datasetCaseId": "E-004",
+      "purpose": "Kaçan açık zarar tehdidi",
+      "text": "Bir daha konuşursan sonu iyi olmayacak.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 35,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 35,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 35,
+        "riskAfter": 35,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 35,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-011",
+      "datasetCaseId": "F-005",
+      "purpose": "Kaçan sarkastik aşağılama",
+      "text": "Müthişsin, her cümlen ayrı bir hayal kırıklığı.",
+      "groundTruth": "violation",
+      "detectedLabel": "clean",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 35,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": false,
+        "detectedExpressions": [],
+        "displayedPenalty": 0,
+        "projectedRisk": 35,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": false,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 35,
+        "riskAfter": 35,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "clean-path",
+        "riskAfter": 35,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-012",
+      "datasetCaseId": "G-002",
+      "purpose": "Akademik alıntıda yanlış pozitif ve Düzenle ile cezasız çıkış",
+      "text": "Derste 'aptal' kelimesinin hakaret olarak kullanımını tartıştık.",
+      "groundTruth": "clean",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 7,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "aptal"
+        ],
+        "displayedPenalty": 7,
+        "projectedRisk": 14,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 7,
+        "riskAfter": 7,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "none",
+        "riskAfter": 7,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-013",
+      "datasetCaseId": "H-005",
+      "purpose": "Gerçek kir anlamında kullanılan kelimede yanlış pozitif",
+      "text": "Pislik tutmayan kumaş 40 derecede yıkanıyor.",
+      "groundTruth": "clean",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_FAILURE",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 7,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "pislik"
+        ],
+        "displayedPenalty": 6,
+        "projectedRisk": 13,
+        "projectedTier": "Normal",
+        "crossesTier": false
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 7,
+        "riskAfter": 7,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "none",
+        "riskAfter": 7,
+        "tierAfter": "Normal",
+        "historyEvent": null,
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-014",
+      "datasetCaseId": "A-004",
+      "purpose": "39 puandan Normal → Uyarı eşik geçişi",
+      "text": "Ne pislik birisin.",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 39,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "pislik"
+        ],
+        "displayedPenalty": 6,
+        "projectedRisk": 45,
+        "projectedTier": "Uyarı",
+        "crossesTier": true
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 39,
+        "riskAfter": 39,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 45,
+        "tierAfter": "Uyarı",
+        "historyEvent": {
+          "id": "violation-1787573401000-15",
+          "timestamp": "2026-08-24T12:10:01.000Z",
+          "type": "violation",
+          "reason": "Doğrudan hakaret — Seviye 2",
+          "previousRisk": 39,
+          "delta": 6,
+          "newRisk": 45,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Doğrudan hakaret",
+            "severity": 2,
+            "policyPoints": 6
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-015",
+      "datasetCaseId": "A-008",
+      "purpose": "59 puandan Uyarı → Bekleme Süresi geçişi ve kısıtlama",
+      "text": "Adi herif, insan bir özür diler.",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 59,
+        "tier": "Uyarı"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "adi herif"
+        ],
+        "displayedPenalty": 8,
+        "projectedRisk": 67,
+        "projectedTier": "Bekleme Süresi",
+        "crossesTier": true
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 59,
+        "riskAfter": 59,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 67,
+        "tierAfter": "Bekleme Süresi",
+        "historyEvent": {
+          "id": "violation-1787574001000-17",
+          "timestamp": "2026-08-24T12:20:01.000Z",
+          "type": "violation",
+          "reason": "Doğrudan hakaret — Seviye 2",
+          "previousRisk": 59,
+          "delta": 8,
+          "newRisk": 67,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Doğrudan hakaret",
+            "severity": 2,
+            "policyPoints": 8
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-016",
+      "datasetCaseId": "A-010",
+      "purpose": "95 puanda riskin 100 ile sınırlanması ve geçici etkileşim kısıtlaması",
+      "text": "Orospu, senden bıktım.",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 95,
+        "tier": "Geçici Yorum Kısıtlaması"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "orospu"
+        ],
+        "displayedPenalty": 20,
+        "projectedRisk": 100,
+        "projectedTier": "Geçici Etkileşim Kısıtlaması",
+        "crossesTier": true
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 95,
+        "riskAfter": 95,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 100,
+        "tierAfter": "Geçici Etkileşim Kısıtlaması",
+        "historyEvent": {
+          "id": "violation-1787574601000-19",
+          "timestamp": "2026-08-24T12:30:01.000Z",
+          "type": "violation",
+          "reason": "Çok ağır hakaret — Seviye 4",
+          "previousRisk": 95,
+          "delta": 5,
+          "newRisk": 100,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Çok ağır hakaret",
+            "severity": 4,
+            "policyPoints": 20
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": null,
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    },
+    {
+      "journeyId": "J-017",
+      "datasetCaseId": "A-007",
+      "purpose": "Onaylı ihlalden sonra iki temiz gün decay ve Uyarı → Normal geri kazanımı",
+      "text": "Sen bir hiçsin, bunu kabullen.",
+      "groundTruth": "violation",
+      "detectedLabel": "violation",
+      "detectionOutcome": "DETECTION_PASS",
+      "interactionOutcome": "INTERACTION_RISK_PASS",
+      "initial": {
+        "risk": 30,
+        "tier": "Normal"
+      },
+      "warning": {
+        "appeared": true,
+        "detectedExpressions": [
+          "sen bir hiçsin"
+        ],
+        "displayedPenalty": 13,
+        "projectedRisk": 43,
+        "projectedTier": "Uyarı",
+        "crossesTier": true
+      },
+      "editPath": {
+        "exercised": true,
+        "appliedPenalty": false,
+        "published": false,
+        "riskBefore": 30,
+        "riskAfter": 30,
+        "noPenaltyVerified": true
+      },
+      "publication": {
+        "mode": "send-anyway",
+        "riskAfter": 43,
+        "tierAfter": "Uyarı",
+        "historyEvent": {
+          "id": "violation-1787575201000-21",
+          "timestamp": "2026-08-24T12:40:01.000Z",
+          "type": "violation",
+          "reason": "Hedefli aşağılama — Seviye 3",
+          "previousRisk": 30,
+          "delta": 13,
+          "newRisk": 43,
+          "metadata": {
+            "confirmedByUser": true,
+            "detectedCount": 1,
+            "primaryCategory": "Hedefli aşağılama",
+            "severity": 3,
+            "policyPoints": 13
+          }
+        },
+        "checks": {
+          "commentPublished": true,
+          "riskMatchesProposal": true,
+          "historyCountCorrect": true,
+          "violationEventCorrect": true,
+          "policyTierCorrect": true,
+          "restrictionCorrect": true
+        }
+      },
+      "decay": {
+        "cleanDays": 2,
+        "riskBefore": 43,
+        "riskAfter": 34.83,
+        "expectedRisk": 34.83,
+        "tierBefore": "Uyarı",
+        "tierAfter": "Normal",
+        "historyEvent": {
+          "id": "decay-1787748000000-22",
+          "timestamp": "2026-08-26T12:40:00.000Z",
+          "type": "decay",
+          "reason": "2 günlük ihlalsiz kullanım",
+          "previousRisk": 43,
+          "delta": -8.17,
+          "newRisk": 34.83,
+          "metadata": {
+            "cleanDays": 2,
+            "lambda": 0.9,
+            "simulated": true
+          }
+        },
+        "checks": {
+          "formulaCorrect": true,
+          "historyAdded": true,
+          "eventCorrect": true
+        }
+      },
+      "interactionChecks": {
+        "warningMatchesActualDetector": true,
+        "displayedPenaltyMatchesEngine": true,
+        "projectedRiskMatchesEngine": true,
+        "editPathCorrect": true,
+        "commentPublished": true,
+        "riskMatchesProposal": true,
+        "historyCountCorrect": true,
+        "violationEventCorrect": true,
+        "policyTierCorrect": true,
+        "restrictionCorrect": true,
+        "decayFormulaCorrect": true,
+        "decayHistoryCorrect": true
+      }
+    }
+  ]
+}
