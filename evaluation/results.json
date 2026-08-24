@@ -1,0 +1,115 @@
+{
+  "generatedAt": "2026-08-24T09:06:50.474Z",
+  "engine": {
+    "type": "deterministic weighted lexicon",
+    "lexiconEntries": 10,
+    "quotedTextHandling": false
+  },
+  "dataset": {
+    "clean": 50,
+    "directViolations": 40,
+    "obfuscatedViolations": 40,
+    "total": 130
+  },
+  "metrics": {
+    "falsePositives": 1,
+    "falsePositiveRatePercent": 2,
+    "directDetected": 36,
+    "directDetectionRatePercent": 90,
+    "obfuscatedDetected": 36,
+    "obfuscatedDetectionRatePercent": 90,
+    "normalizationBypassCatchRatePercent": 90,
+    "precisionPercent": 98.63,
+    "recallPercent": 90,
+    "f1Percent": 94.12
+  },
+  "falsePositives": [
+    {
+      "id": "clean-047",
+      "text": "Rapor, “aptal” kelimesinin kullanımını tartışıyor.",
+      "expectedMatchIds": [],
+      "actualMatchIds": [
+        "aptal"
+      ],
+      "detected": false
+    }
+  ],
+  "misses": {
+    "direct": [
+      {
+        "id": "direct-037",
+        "text": "Sen aptalsın",
+        "expectedMatchIds": [
+          "aptal"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "direct-038",
+        "text": "Ne kadar salaksın",
+        "expectedMatchIds": [
+          "salak"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "direct-039",
+        "text": "Şerefsizsin",
+        "expectedMatchIds": [
+          "serefsiz"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "direct-040",
+        "text": "Pisliğin tekisin",
+        "expectedMatchIds": [
+          "pislik"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      }
+    ],
+    "obfuscated": [
+      {
+        "id": "obf-037",
+        "text": "a....p....t....a....l",
+        "expectedMatchIds": [
+          "aptal"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "obf-038",
+        "text": "s🟦🟦🟦🟦a🟦🟦🟦🟦l🟦🟦🟦🟦a🟦🟦🟦🟦k",
+        "expectedMatchIds": [
+          "salak"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "obf-039",
+        "text": "аptal",
+        "expectedMatchIds": [
+          "aptal"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      },
+      {
+        "id": "obf-040",
+        "text": "grzklı",
+        "expectedMatchIds": [
+          "gerizekali"
+        ],
+        "actualMatchIds": [],
+        "detected": false
+      }
+    ]
+  }
+}
