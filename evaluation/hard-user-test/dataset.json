@@ -1,5 +1,5 @@
 {
-  "datasetVersion": "1.0.0",
+  "datasetVersion": "1.1.0",
   "authoredAt": "2026-08-24T12:55:00+03:00",
   "language": "tr",
   "purpose": "Dengine'ın dondurulmuş deterministik algılama katmanını gerçekçi, yaratıcı ve kasıtlı kaçınma davranışlarına karşı bağımsız olarak sınamak",
@@ -224,11 +224,11 @@
     },
     {
       "id": "B-013",
-      "text": "a....p....t....a....l",
+      "text": "4pt@l mısın la, ne anlatıyon?",
       "category": "ORTHOGRAPHIC_EVASION",
       "expected": "violation",
       "expectedSeverity": "medium",
-      "reason": "Uzun noktalama dizileriyle parçalanmış hakaret."
+      "reason": "Sayı ve sembol ikamelerini gündelik, hatalı yazımlı bir cümlede birleştiren hakaret."
     },
     {
       "id": "B-014",
