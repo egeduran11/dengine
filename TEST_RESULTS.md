@@ -4,7 +4,7 @@
 
 Bu dosya terminal çıktısının kaybolmaması için gerçek kalite kapısı ve tarayıcı senaryolarını kaydeder.
 
-Test tarihi: 24 Ağustos 2026 (Europe/Istanbul)
+Test tarihi: 24 Ağustos 2026, 12:15 (Europe/Istanbul)
 
 ## Komutlar ve Sonuçlar
 
@@ -57,8 +57,8 @@ vite v7.3.6 building client environment for production...
 ✓ 1687 modules transformed.
 dist/index.html                   0.67 kB │ gzip:  0.41 kB
 dist/assets/index-biaplHou.css   19.14 kB │ gzip:  4.98 kB
-dist/assets/index-DV65e76j.js   228.28 kB │ gzip: 72.09 kB
-✓ built in 798ms
+dist/assets/index-DDSQIi8R.js   228.38 kB │ gzip: 72.11 kB
+✓ built in 834ms
 ```
 
 Hashli asset adları final rerun’da değişebilir; başarı durumu ve yaklaşık boyutlar doğrulanmıştır.

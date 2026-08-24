@@ -38,7 +38,7 @@ Case-level metrikler:
 
 ## Gerçek Sonuçlar
 
-Oluşturulma zamanı: `2026-08-24T09:06:50.474Z`
+Oluşturulma zamanı: `2026-08-24T09:15:58.904Z`
 
 | Metrik | Sonuç |
 |---|---:|
