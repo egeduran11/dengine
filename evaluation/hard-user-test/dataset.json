@@ -1,0 +1,816 @@
+{
+  "datasetVersion": "1.0.0",
+  "authoredAt": "2026-08-24T12:55:00+03:00",
+  "language": "tr",
+  "purpose": "Dengine'ın dondurulmuş deterministik algılama katmanını gerçekçi, yaratıcı ve kasıtlı kaçınma davranışlarına karşı bağımsız olarak sınamak",
+  "labelingRule": "Tüm ground-truth etiketleri Dengine bu vakalara çalıştırılmadan önce atanmıştır.",
+  "cases": [
+    {
+      "id": "A-001",
+      "text": "Tam bir salaksın.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın zekâsına yöneltilmiş doğrudan hakaret."
+    },
+    {
+      "id": "A-002",
+      "text": "Sen gerçekten aptalsın ya.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Kişiye doğrudan aşağılayıcı nitelik yükleniyor."
+    },
+    {
+      "id": "A-003",
+      "text": "Buradan defol.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Muhatabı kaba biçimde ortamdan kovuyor."
+    },
+    {
+      "id": "A-004",
+      "text": "Ne pislik birisin.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhataba doğrudan aşağılayıcı bir isim yöneltiliyor."
+    },
+    {
+      "id": "A-005",
+      "text": "Şerefsiz herif, yine gelmiş.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Kişinin karakterini hedef alan ağır hakaret."
+    },
+    {
+      "id": "A-006",
+      "text": "Gerizekalının teki olduğunu yine kanıtladın.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Kişinin zihinsel kapasitesini hedef alan doğrudan ağır hakaret."
+    },
+    {
+      "id": "A-007",
+      "text": "Sen bir hiçsin, bunu kabullen.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın insanî değerini bütünüyle reddeden hedefli aşağılama."
+    },
+    {
+      "id": "A-008",
+      "text": "Adi herif, insan bir özür diler.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Kişiyi karakteri üzerinden doğrudan aşağılıyor."
+    },
+    {
+      "id": "A-009",
+      "text": "Ulan piç, yine mi sen?",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhataba son derece ağır ve doğrudan hakaret."
+    },
+    {
+      "id": "A-010",
+      "text": "Orospu, senden bıktım.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhataba cinsiyetçi ve ağır hakaret."
+    },
+    {
+      "id": "A-011",
+      "text": "Ne mal adamsın be.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Gündelik argoda zekâyı hedef alan doğrudan hakaret."
+    },
+    {
+      "id": "A-012",
+      "text": "Dangalak mısın oğlum sen?",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Soru biçiminde doğrudan hakaret."
+    },
+    {
+      "id": "A-013",
+      "text": "Beyinsiz, önce okumayı öğren.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın zihinsel kapasitesini doğrudan aşağılıyor."
+    },
+    {
+      "id": "A-014",
+      "text": "Ezik seni, hâlâ konuşuyorsun.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Muhatabı değersiz ve güçsüz gösteren doğrudan hakaret."
+    },
+    {
+      "id": "A-015",
+      "text": "Geri zekâlı, konuyu bir kere de anla.",
+      "category": "DIRECT_KNOWN_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Yaygın yazım varyantıyla ağır ve doğrudan hakaret."
+    },
+
+    {
+      "id": "B-001",
+      "text": "s.a.l.a.k gibi konuşma",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Nokta eklenerek gizlenmiş doğrudan hakaret."
+    },
+    {
+      "id": "B-002",
+      "text": "a p t a l mısın?",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Harfler arasına boşluk konarak gizlenmiş hakaret."
+    },
+    {
+      "id": "B-003",
+      "text": "ŞEEEREFSİZZZ yine burda",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Büyük/küçük harf ve harf tekrarıyla gizlenmiş ağır hakaret."
+    },
+    {
+      "id": "B-004",
+      "text": "g3r1z3k4l1 seni",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Sayı ikameleriyle gizlenmiş ağır hakaret."
+    },
+    {
+      "id": "B-005",
+      "text": "p!i!ç herif",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Sembol eklemeleriyle gizlenmiş ağır hakaret."
+    },
+    {
+      "id": "B-006",
+      "text": "o.r.o.s.p.u diyeceğim artık",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Noktalarla parçalanmış cinsiyetçi ağır hakaret."
+    },
+    {
+      "id": "B-007",
+      "text": "d_e_f_o_l şurdan",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Alt çizgilerle gizlenmiş kaba kovma ifadesi."
+    },
+    {
+      "id": "B-008",
+      "text": "p*s*l*k herif",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Bazı harfleri yıldızla maskeleyen doğrudan hakaret."
+    },
+    {
+      "id": "B-009",
+      "text": "s@l@k ya cidden",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "At işareti ikamesiyle gizlenmiş doğrudan hakaret."
+    },
+    {
+      "id": "B-010",
+      "text": "apta1ın tekisin",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Son harfi sayıyla değiştirilen ve ek alan hakaret."
+    },
+    {
+      "id": "B-011",
+      "text": "аptal herif",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "İlk harfte Latin a yerine görsel olarak benzer Kiril harfi kullanılmış hakaret."
+    },
+    {
+      "id": "B-012",
+      "text": "GeRiZeKaLı seni",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Karışık büyük/küçük harfle yazılmış ağır hakaret."
+    },
+    {
+      "id": "B-013",
+      "text": "a....p....t....a....l",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Uzun noktalama dizileriyle parçalanmış hakaret."
+    },
+    {
+      "id": "B-014",
+      "text": "s🫥a🫥l🫥a🫥k olmuşsun",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Emoji ayırıcılarla gizlenmiş doğrudan hakaret."
+    },
+    {
+      "id": "B-015",
+      "text": "s4lakmışsın da haberin yok",
+      "category": "ORTHOGRAPHIC_EVASION",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Sayı ikamesi ile Türkçe çekim ekini birlikte kullanan hakaret."
+    },
+
+    {
+      "id": "C-001",
+      "text": "Zekân gelince haber ver de konuşmaya öyle devam edelim.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Tek tek nötr kelimelerle muhatabın zekâdan yoksun olduğu söyleniyor."
+    },
+    {
+      "id": "C-002",
+      "text": "Beynini uçak modundan çıkar da bi öyle yaz.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Metafor yoluyla muhatabın düşünemediğini söyleyen yaratıcı aşağılama."
+    },
+    {
+      "id": "C-003",
+      "text": "Fikrin yok, sadece ses yapıyorsun.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın düşüncesini ve konuşmasını bütünüyle değersizleştiriyor."
+    },
+    {
+      "id": "C-004",
+      "text": "İki nöronun varsa ikisi de birbirine küsmüş.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Yaratıcı biyolojik benzetmeyle zekâya saldırı."
+    },
+    {
+      "id": "C-005",
+      "text": "Takvim yaprağı senden daha işe yarıyor kanka.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı sıradan bir nesneden daha değersiz gösteren karşılaştırma."
+    },
+    {
+      "id": "C-006",
+      "text": "Sen konuşunca ortamın IQ'su istifa ediyor.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın varlığını toplu zekâ kaybı metaforuyla aşağılıyor."
+    },
+    {
+      "id": "C-007",
+      "text": "Bir düşüncen olsaydı şaşırırdım zaten.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Dolaylı cümleyle muhatabın düşünme kapasitesi olmadığı ima ediliyor."
+    },
+    {
+      "id": "C-008",
+      "text": "Kafanın içi kiralık ilanı gibi: bomboş.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Mekân metaforuyla muhatabın zihinsel yetersizliği hedef alınıyor."
+    },
+    {
+      "id": "C-009",
+      "text": "Seni ciddiye almak direkt zaman israfı.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı dikkate alınmaya değmez gösteriyor."
+    },
+    {
+      "id": "C-010",
+      "text": "Aynaya özür borçlusun bence.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Görünüşü yaratıcı ve aşağılayıcı bir ima ile hedef alıyor."
+    },
+    {
+      "id": "C-011",
+      "text": "Bu kadar özgüven, bu kadar az içerik... enteresan.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Muhatabı içi boş ve temelsiz özgüvenli göstermek üzere kurulan bütüncül aşağılama."
+    },
+    {
+      "id": "C-012",
+      "text": "Seninle tartışmak duvara internet anlatmak gibi ya.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı anlamayan cansız bir nesneyle eşitleyen küçültücü benzetme."
+    },
+    {
+      "id": "C-013",
+      "text": "Doğa seni taslakta bırakmış, yayınlamaya kim bastı?",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın tüm varlığını kusurlu ürün metaforuyla hedef alıyor."
+    },
+    {
+      "id": "C-014",
+      "text": "Cümle kuruyorsun ama anlam arkadan yetişemiyor.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Muhatabın söylediklerini bütünüyle anlamsızlaştırıyor."
+    },
+    {
+      "id": "C-015",
+      "text": "Kapasiten bildirim sesinden ibaret galiba.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Zihinsel kapasiteyi anlamsız bir ses düzeyine indiren benzetme."
+    },
+    {
+      "id": "C-016",
+      "text": "Sen bir hata mesajının insan hâlisin.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın varlığını bir sistem hatasına indirgeyen hedefli aşağılama."
+    },
+    {
+      "id": "C-017",
+      "text": "Varlığın yorumlara kalite kaybı olarak dönüyor.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın katılımını doğrudan kalite kaybı olarak tanımlıyor."
+    },
+    {
+      "id": "C-018",
+      "text": "Boş teneke bile senden daha ritmik ses çıkarıyor.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı gürültü üreten değersiz bir nesneden aşağı gösteriyor."
+    },
+    {
+      "id": "C-019",
+      "text": "Bunca kelimeyi hiçbir şey söylememek için mi topladın?",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Retorik soruyla muhatabın anlatımını bütünüyle değersizleştiriyor."
+    },
+    {
+      "id": "C-020",
+      "text": "Sana fikir sormak pusulasız kaybolmak gibi.",
+      "category": "CREATIVE_COMPOSITIONAL_ABUSE",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın düşüncelerini yönsüz ve yararsız gösteren benzetme."
+    },
+
+    {
+      "id": "D-001",
+      "text": "Yorum yapmadan önce birinden yardım al istersen.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Yardım önerisi görünümünde muhatabın tek başına düşünemediğini ima ediyor."
+    },
+    {
+      "id": "D-002",
+      "text": "Senin seviyene inmek için asansör bile yetmez.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı aşırı düşük bir seviyede gösteren dolaylı aşağılama."
+    },
+    {
+      "id": "D-003",
+      "text": "Sana cevap vermek kendi zekâma saygısızlık olur.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı yanıtlanmaya değmeyecek kadar düşük gösteriyor."
+    },
+    {
+      "id": "D-004",
+      "text": "Konuşmayı bilen biri gelene kadar seni dinlemek zorundayız galiba.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın konuşma becerisini dolaylı biçimde reddediyor."
+    },
+    {
+      "id": "D-005",
+      "text": "Bu düşünceyi yazarken kimse seni durdurmadı mı?",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Retorik soruyla düşüncenin yazılmaya değmez olduğunu ima ediyor."
+    },
+    {
+      "id": "D-006",
+      "text": "Belli ki düşünmek bugün programında yok.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın düşünmeden konuştuğunu aşağılayıcı biçimde ima ediyor."
+    },
+    {
+      "id": "D-007",
+      "text": "Adını görünce kalite beklentimi otomatik düşürüyorum.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Kişinin varlığını düşük kaliteyle özdeşleştiren dolaylı saldırı."
+    },
+    {
+      "id": "D-008",
+      "text": "Senden beklenen seviyeyi yine aşağı taşımışsın.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabın sürekli düşük performans gösterdiğini küçümseyerek söylüyor."
+    },
+    {
+      "id": "D-009",
+      "text": "Bu yorum, neden herkesin söz hakkını kullanmaması gerektiğini anlatıyor.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Muhatabın konuşma hakkını hak etmediğini ima eden ağır küçümseme."
+    },
+    {
+      "id": "D-010",
+      "text": "Seni örnek göstersem sadece ne yapılmaması gerektiğini anlatırım.",
+      "category": "INDIRECT_INSULT",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı bütünüyle olumsuz örnek olarak çerçeveliyor."
+    },
+
+    {
+      "id": "E-001",
+      "text": "Seni gördüğüm yerde hesabını soracağım.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Yüz yüze karşılaşmada zarar veya zor kullanma tehdidi içeriyor."
+    },
+    {
+      "id": "E-002",
+      "text": "Bu yazdığını sana pahalı ödetirim.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Belirsiz fakat açık bir misilleme tehdidi."
+    },
+    {
+      "id": "E-003",
+      "text": "Akşam dışarı çıkarken arkana bak.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Takip veya saldırı ihtimalini ima ederek korkutuyor."
+    },
+    {
+      "id": "E-004",
+      "text": "Bir daha konuşursan sonu iyi olmayacak.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Davranışa bağlanmış açık zarar tehdidi."
+    },
+    {
+      "id": "E-005",
+      "text": "Adresini bulmam uzun sürmez, rahat ol.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Kişisel konumu bulma imasıyla gözdağı veriyor."
+    },
+    {
+      "id": "E-006",
+      "text": "Seninle yakında yüz yüze görüşeceğiz, merak etme.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Tartışma bağlamında yaklaşan yüzleşmeyle örtülü tehdit kuruyor."
+    },
+    {
+      "id": "E-007",
+      "text": "O gülüşünü yakında yüzünden silerler.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Fiziksel zarar ihtimalini üçüncü kişi üzerinden ima ediyor."
+    },
+    {
+      "id": "E-008",
+      "text": "Bugünlük şanslısın, bir dahakine değilsin.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Gelecekte zarar göreceğini üstü kapalı biçimde söylüyor."
+    },
+    {
+      "id": "E-009",
+      "text": "Başına ne geleceğini bekle de gör.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "high",
+      "reason": "Belirsiz fakat ciddi bir zarar tehdidi."
+    },
+    {
+      "id": "E-010",
+      "text": "Bu mesajı son uyarın say.",
+      "category": "THREAT_VIOLENT_IMPLICATION",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Devamında yaptırım veya zarar geleceğini ima eden gözdağı."
+    },
+
+    {
+      "id": "F-001",
+      "text": "Vay be, zekân yine hepimizi kör etti 🙃",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Övgü biçimindeki söz ve ters yüz emojisi, zekâya yönelik alaycı saldırı oluşturuyor."
+    },
+    {
+      "id": "F-002",
+      "text": "Harika fikir, bunu düşünmek için kesin yıllar harcadın.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Sahte övgüyle fikrin basitliğini ve sahibini küçümsüyor."
+    },
+    {
+      "id": "F-003",
+      "text": "Sen konuşunca kalite gerçekten tavan yapıyor, aşağı doğru.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Olumlu deyimi tersine çevirerek muhatabı kalite kaynağı değil kaybı olarak gösteriyor."
+    },
+    {
+      "id": "F-004",
+      "text": "Ne kadar da olgun bir yorum, anaokulu gurur duyardı.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Sahte övgü ve çocukluk karşılaştırmasıyla muhatabın olgunluğunu aşağılıyor."
+    },
+    {
+      "id": "F-005",
+      "text": "Müthişsin, her cümlen ayrı bir hayal kırıklığı.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Övgü açılışını doğrudan değersizleştirme için ironik olarak kullanıyor."
+    },
+    {
+      "id": "F-006",
+      "text": "Bravo, yine kimsenin istemediği fikri buldun.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Tebrik ifadesiyle muhatabın fikrini istenmeyen ve değersiz gösteriyor."
+    },
+    {
+      "id": "F-007",
+      "text": "Dâhiliğin karşısında kelimeler çaresiz kaldı 😂",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "contextual",
+      "reason": "Aşırı övgü ve gülme emojisiyle zekâyı alay konusu yapıyor."
+    },
+    {
+      "id": "F-008",
+      "text": "Evet evet, dünyanın merkezi sensin zaten.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "low",
+      "reason": "Tekrar ve vurgu, muhatabın benmerkezciliğini alaycı biçimde hedef alıyor."
+    },
+    {
+      "id": "F-009",
+      "text": "Ne güzel anlatmışsın; anlam dışında her şey var.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Övgü biçimi üzerinden anlatımı bütünüyle anlamsız ilan ediyor."
+    },
+    {
+      "id": "F-010",
+      "text": "Bu özgüvenle gerçeğe ihtiyacın kalmamış tabii.",
+      "category": "SARCASM_IRONY",
+      "expected": "violation",
+      "expectedSeverity": "medium",
+      "reason": "Muhatabı gerçeklerden kopuk ve temelsiz özgüvenli olmakla alaycı biçimde suçluyor."
+    },
+
+    {
+      "id": "G-001",
+      "text": "Bana 'salak' dediği için yorumu raporladım.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Kullanıcı başkasının hakaretini raporluyor; hedefe hakaret etmiyor."
+    },
+    {
+      "id": "G-002",
+      "text": "Derste 'aptal' kelimesinin hakaret olarak kullanımını tartıştık.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Kelimenin akademik/dilbilimsel kullanımından söz ediyor."
+    },
+    {
+      "id": "G-003",
+      "text": "Moderatör, 'şerefsiz' ifadesinin ağır ihlal olduğunu açıkladı.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Moderasyon kararını açıklayan alıntı, doğrudan saldırı değil."
+    },
+    {
+      "id": "G-004",
+      "text": "'Defol' yazmak yerine konuşmayı bitirebilirsin.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Kaba dil kullanmamayı öneren örnekleme cümlesi."
+    },
+    {
+      "id": "G-005",
+      "text": "Ekran görüntüsünde 'sen bir hiçsin' cümlesi geçiyor.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Kanıt niteliğinde metin aktarıyor; muhataba yöneltmiyor."
+    },
+    {
+      "id": "G-006",
+      "text": "Bu araştırma, 'gerizekalı' sözünün çevrimiçi etkisini inceliyor.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Araştırma konusunu tanımlayan akademik kullanım."
+    },
+    {
+      "id": "G-007",
+      "text": "Kimseye 'pislik' demek doğru değil.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Hakareti teşvik etmiyor; tersine reddediyor."
+    },
+    {
+      "id": "G-008",
+      "text": "Raporlanan yorumda 'adi herif' ifadesi vardı.",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Raporlanan içeriği betimliyor; yeni bir hedefe saldırmıyor."
+    },
+    {
+      "id": "G-009",
+      "text": "Alıntı: 'piç' — bu kelime neden engellendi?",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Moderasyon kararını sorgulamak için kelimeyi açıkça alıntılıyor."
+    },
+    {
+      "id": "G-010",
+      "text": "Cinsiyetçi bir küfrü tekrarlamadan moderasyon kararını açıklayabilir miyiz?",
+      "category": "QUOTATION_CONTEXT_TRAP",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Belirli hakareti kullanmadan moderasyon dilini tartışıyor."
+    },
+
+    {
+      "id": "H-001",
+      "text": "Salatalıklar çooook tazeydi!!!",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Harf tekrarları ve benzer başlangıç taşıyan tamamen temiz gıda yorumu."
+    },
+    {
+      "id": "H-002",
+      "text": "Apartmanın 3. katı bugün boyanıyor.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Sayı ve benzer harf dizileri içeren sıradan bilgi."
+    },
+    {
+      "id": "H-003",
+      "text": "Şerefli bir davranıştı, teşekkür ederim.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Hakaret köküne benzeyen fakat olumlu anlam taşıyan temiz sözcük."
+    },
+    {
+      "id": "H-004",
+      "text": "Defolu ürünü 1 hafta içinde iade ettim.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Kaba ifadeye benzeyen kök ve sayı içeren tüketici yorumu."
+    },
+    {
+      "id": "H-005",
+      "text": "Pislik tutmayan kumaş 40 derecede yıkanıyor.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Sözlükte hakaret olarak bulunabilecek kelime burada gerçek kir anlamında kullanılıyor."
+    },
+    {
+      "id": "H-006",
+      "text": "Adı herif değil, Kerem; yanlış duymuşsun.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Türkçe ı/i farkıyla hakaret ifadesine görsel olarak benzeyen düzeltme cümlesi."
+    },
+    {
+      "id": "H-007",
+      "text": "PİÇ, proje içi çizelgenin ekipte kullandığımız kısaltması.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Aynı karakter dizisini kurumsal bir kısaltma olarak açıklayan temiz kullanım."
+    },
+    {
+      "id": "H-008",
+      "text": "s.a.l.a.k diye bir dosya kodu gördüm; açılımını bilmiyorum.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Noktalı karakter dizisini hedefe yöneltmeden dosya kodu olarak anıyor."
+    },
+    {
+      "id": "H-009",
+      "text": "Bugün hava süperrrr, 7/24 dışarıda olasım var :)",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Harf tekrarı, sayı, eğik çizgi ve emoji benzeri noktalama içeren temiz sosyal medya dili."
+    },
+    {
+      "id": "H-010",
+      "text": "Orduspor'un maçı 0-1 bitti, son dakikayı kaçırdım ya.",
+      "category": "CLEAN_ADVERSARIAL_CONTROL",
+      "expected": "clean",
+      "expectedSeverity": "n/a",
+      "reason": "Sayı ikamelerini ve benzer harf dizilerini zorlayan temiz spor yorumu."
+    }
+  ]
+}
